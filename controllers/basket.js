@@ -1,21 +1,9 @@
 const uniqid = require("uniqid");
-const CardGroupModel = require("../models/cardsGroup");
+const BasketModel = require("../models/basket");
 
-module.exports.INSERT_CARDS_GROUP = async (req, res) => {
-  const cardGroup = new CardGroupModel({
-    title: req.body.title,
-    creationDate: new Date(),
-    summaryCardIds: [],
-    id: uniqid(),
-  });
+module.exports.GET_BASKET = async (req, res) => {
 
-  await cardGroup.save();
+  const basketData = await BasketModel.find();
 
-  res.status(200).json({ response: "summaryCard" });
-};
-
-module.exports.GET_ALL_CARDS_GROUP = async (req, res) => {
-  const cardGroup = await CardGroupModel.find();
-
-  res.status(200).json({ cardGroup: cardGroup });
+  res.status(200).json({ basketData: basketData });
 };

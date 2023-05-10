@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const goodRouter = require("./routes/good");
 // const basketRouter = require("./routes/basket);
 const user = require("./routes/user");
-
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 app.use(cors());
@@ -26,6 +26,6 @@ mongoose
     console.log("err", err);
   });
 
-app.listen(8081, () => {
+app.listen(process.env.PORT, () => {
   console.log("Your app is alive!!!!!");
 });
