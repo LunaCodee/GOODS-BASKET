@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const good = require("./good");
 
 const GoodSchema = mongoose.Schema({
   title: { type: String, required: true, min: 3 },

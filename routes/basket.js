@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const authMiddleware = require("../middleware/auth");
 const {
-    GET_BASKET,
-    // DELETE_BASKET,
+    POST_BASKET,
+    DELETE_BASKET,
 } = require("../controllers/basket");
 
-router.get("/basket", GET_BASKET);
-// router.delete("/basket", DELETE_BASKET);
+router.post("/basket", authMiddleware, POST_BASKET);
+router.delete("/basket/:id", DELETE_BASKET);
 
 module.exports = router;

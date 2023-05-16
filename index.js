@@ -3,7 +3,8 @@ const app = express();
 var cors = require("cors");
 const bodyParser = require("body-parser");
 const goodRouter = require("./routes/good");
-// const basketRouter = require("./routes/basket);
+const basketRouter = require("./routes/basket");
+
 const user = require("./routes/user");
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(goodRouter);
-// app.use(basketRouter);
+app.use(basketRouter);
 app.use(user);
 
 mongoose
